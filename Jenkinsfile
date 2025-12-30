@@ -29,7 +29,9 @@ pipeline {
                 sh '''
                 echo "Building Flask Application"
                 . $VENV/bin/activate
-                python -m py_compile app.py
+                python -m py_compile main.py
+                python -m py_compile forms.py
+                python -m py_compile init_db.py
                 '''
             }
         }
@@ -37,7 +39,7 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 sh '''
-                echo "Deploying Flask Application"
+                echo "Deploy stage (skipped actual deployment)"
                 '''
             }
         }
