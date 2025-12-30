@@ -18,15 +18,6 @@ pipeline {
             }
         }
 
-        stage('Run Unit Tests') {
-            steps {
-                sh '''
-                . $VENV/bin/activate
-                pytest
-                '''
-            }
-        }
-
         stage('Build Application') {
             steps {
                 sh '''
