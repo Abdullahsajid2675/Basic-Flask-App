@@ -7,13 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/USERNAME/flask-app.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh '''
@@ -47,8 +40,6 @@ pipeline {
             steps {
                 sh '''
                 echo "Deploying Flask Application"
-                # Example deployment
-                # gunicorn app:app --daemon
                 '''
             }
         }
