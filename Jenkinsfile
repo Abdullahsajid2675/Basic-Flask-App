@@ -7,6 +7,12 @@ pipeline {
 
     stages {
 
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 sh '''
@@ -22,6 +28,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Building Flask Application"
+                . $VENV/bin/activate
                 python -m py_compile app.py
                 '''
             }
